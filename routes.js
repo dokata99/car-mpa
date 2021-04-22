@@ -1,19 +1,16 @@
 const { Router } = require('express')
 const router = Router() 
+const homeController = require('./controllers/homeController')
+const addController = require('./controllers/addController')
+const authenticationController = require('./controllers/authenticationController')
 
 
 
-router.get('/',(req,res) =>{
-    res.render('home', {title: 'CarsExpress'})
-})
-router.get('/add',(req,res) =>{
-    res.render('create', {title: 'CarsExpress'})
-})
-router.get('/details/:carId',(req,res) =>{
-    res.render('details', {title: 'CarsExpress'})
-})
-router.get('/register',(req,res) =>{
-    res.render('register', {title: 'CarsExpress'})
-})
 
-module.exports = router
+router.use('/',homeController) //everything what starts with '/' goes to homeCont.
+router.use('/add', addController) // everything what starts with '/add' goes to addCont.
+router.use('/auth', authenticationController) //everything what starts with '/auth' goes to authCont.
+
+
+
+module.exports = router 
