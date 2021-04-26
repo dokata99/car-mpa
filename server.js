@@ -1,12 +1,14 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
 const routes = require('./routes')
+const mongoose = require('./config/mongoose') //mongoose configuration
 
 //here we import NMP packages
 
 
 const app = express()
 
+mongoose(app)
 
 //set up the view engine for express
 app.engine('hbs', handlebars({

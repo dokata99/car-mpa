@@ -1,23 +1,23 @@
 const mongoose = require('mongoose')
 
 const carSchema = new mongoose.Schema({
-    name:{
+    brand:{
         type: String,
         required: true,
         min:2,
     },
-    description:{
+    model:{
         type: String, 
         required: true,
+    },
+    price:{
+        type: Number,
+        required:true
     },
     imageUrl:{
         type: String,
         required: true,
         validate: /^https?/
-    },
-    price:{
-        type: Number,
-        required:true
     }
 })
 
