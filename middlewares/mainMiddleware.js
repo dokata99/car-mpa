@@ -14,6 +14,7 @@ module.exports = function () {
                     req.locals = decoded
                     res.locals.isAuthenticated = true
                     res.locals.username = req.user.username
+                    res.locals.userId = req.user._id
                 }
             })
         }

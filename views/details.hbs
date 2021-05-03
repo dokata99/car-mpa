@@ -5,16 +5,32 @@
             <img src="{{car.imageUrl}}" alt="">
         </div>
         <div class="car-right">
-            <div>
-                <h3>{{car.brand}}</h3>
+            <div class="flex">
+                <p>Brand: </p>
+                <p>{{car.brand}}</p>
             </div>
-            <div>
-                {{car.model}}
+            <div class="flex">
+                <p>Model:</p>
+                <p>{{car.model}}</p>
             </div>
-            <p><span>{{car.price}} BGN</span> </p>
-
+            <div class="flex">
+                <p>Price:</p>
+                <p>{{car.price}}BGN</p>
+            </div>
+            <div class="flex">
+                <p>Owner:</p>
+                <p><span>{{user.username}}</span> </p>
+            </div>
+            <div class="flex">
+                <p>Contacts:</p>
+                <p><span>{{user.phone}}</span> </p>
+            </div>
+            {{#if isAuthenticated}}
+            {{#if isOwner}}
             <a href="" class="edit">Edit</a>
             <a href="" class="remove">Delete</a>
+            {{/if}}
+            {{/if}}
         </div>
     </div>
 </section>

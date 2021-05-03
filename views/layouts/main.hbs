@@ -22,7 +22,7 @@
             </div>
             <div class="right-container">
             {{#if isAuthenticated}}
-                <a href="" class="log-out">{{username}}</a>
+                <a href="/profile/{{userId}}" class="log-out">{{username}}</a>
                 <a href="/auth/logout" class="log-out">Logout</a>
                 {{else}}
                 <li><a href="/auth/login">LogIn</a></li>

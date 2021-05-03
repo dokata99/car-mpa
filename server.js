@@ -14,7 +14,7 @@ mongoose(app)
 
 //set up the view engine for express
 app.engine('hbs', handlebars({
-    extname: 'hbs'  //default is 'handlebars', we change it to 'hbs' (file extention)
+    extname: 'hbs', //default is 'handlebars', we change it to 'hbs' (file extention)
 }))
 app.set('view engine', 'hbs')
 

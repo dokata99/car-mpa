@@ -18,6 +18,10 @@ const carSchema = new mongoose.Schema({
         type: String,
         required: true,
         validate: /^https?/
+    },
+    owner: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
     }
 })
 

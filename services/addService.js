@@ -1,8 +1,8 @@
 const Car = require('../model/car')
 
 
-function create(carData){
-    let car = new Car(carData)
+function create(carData, userId) {
+    let car = new Car({ ...carData, owner: userId })
 
     return car.save()
 }

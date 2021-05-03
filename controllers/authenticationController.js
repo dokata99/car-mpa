@@ -81,7 +81,7 @@ router.post('/login', isGuest, async (req, res) => {
     }
 })
 
-router.get('/logout', isAuth, (req,res) =>{
+router.get('/logout', (req,res) =>{
     res.clearCookie('USER_SESSION')
     res.redirect('/')
 })
