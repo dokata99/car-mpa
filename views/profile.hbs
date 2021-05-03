@@ -1,5 +1,8 @@
 <section id="viewhotelDetails">
-    <div class="profile"><img src="../static/img/profile.png" alt="default user">
+    <div class="profile">
+        {{#if profile.profileImg}}
+        <img src="{{profile.profileImg}}" alt="default user">
+        {{/if}}
         <h3>User Info:</h3>
         <div class="flex">
             <p>Username: </p>
@@ -16,4 +19,5 @@
             </p>
         </div>
     </div>
+    <a href="/profile/edit/{{userId}}" class="edit">Upload Photo</a>
 </section>

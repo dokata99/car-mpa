@@ -18,8 +18,11 @@ const userSchema = new mongoose.Schema({
     phone:{
         type:String,
         required: true
+    },
+    profileImg:{
+        type:String,
+        required:false
     }
-
 })
 
 module.exports = mongoose.model('User', userSchema)
