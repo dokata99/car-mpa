@@ -15,14 +15,19 @@
             <div class="left-container">
                 <ul>
                     <li><a href="/">Home</a></li>
+                    {{#if isAuthenticated}}
                     <li><a href="/add">Add car</a></li>
-                    <li><a href="/auth/login">LogIn</a></li>
-                    <li><a href="/auth/register">Register</a></li>
+                    {{/if}}
                 </ul>
             </div>
             <div class="right-container">
-                <a href="" class="log-out">@username</a>
-                <a href="" class="log-out">Logout</a>
+            {{#if isAuthenticated}}
+                <a href="" class="log-out">{{username}}</a>
+                <a href="/auth/logout" class="log-out">Logout</a>
+                {{else}}
+                <li><a href="/auth/login">LogIn</a></li>
+                <li><a href="/auth/register">Register</a></li>
+            {{/if}}
             </div>
         </nav>
 

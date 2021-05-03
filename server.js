@@ -2,6 +2,8 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const routes = require('./routes')
 const mongoose = require('./config/mongoose') //mongoose configuration
+const cookieParser = require('cookie-parser')
+const mainMiddleware = require('./middlewares/mainMiddleware')
 
 //here we import NMP packages
 
@@ -21,6 +23,10 @@ app.use(express.static('public')) //give express permissiton to always use this 
 app.use(express.urlencoded({   //parce the url to json/doc format 
     extended: true}
     ))
+
+app.use(cookieParser())
+
+app.use(mainMiddleware())
 
 app.use(routes) 
 

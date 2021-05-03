@@ -4,6 +4,7 @@ const homeService = require('../services/homeService')
 
 router.get('/', (req, res) => {
 
+    
     homeService.getAll()
         .then((cars) => {
             res.render('home', { title: 'carsExpress', cars })
