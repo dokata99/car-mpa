@@ -2,7 +2,11 @@
     <h2>Add new car</h2>
     <form action="/add" method="post" id="formAddhotel">
         <label for="brand">Car brand:</label>
-        <input type="text" id="brand" name="brand" placeholder="Brand">
+        <select name="brand" id="brand">
+            {{#each brands}}
+            {{>brandElement}}
+            {{/each}}
+        </select>
         <label for="model">Model:</label>
         <input type="text" id="model" name="model" placeholder="Model">
         <label for="price">Price:</label>

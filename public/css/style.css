@@ -87,6 +87,13 @@ input {
     border: 2px solid lightsteelblue;
     padding: 5px;
 }
+select,option {
+    display: block;
+    margin: 10px auto;
+    width: 215px;
+    border: 2px solid lightsteelblue;
+    padding: 5px;
+}
 
 .create, .save-changes, .login, .register {
     background: cornflowerblue;

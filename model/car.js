@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 
 const carSchema = new mongoose.Schema({
     brand:{
-        type: String,
+        type: mongoose.Types.ObjectId,
+        ref: 'Brands',
         required: true,
-        min:2,
     },
     model:{
         type: String, 
@@ -21,7 +21,8 @@ const carSchema = new mongoose.Schema({
     },
     owner: {
         type: mongoose.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true,
     }
 })
 

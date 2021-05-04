@@ -1,4 +1,5 @@
 const Car = require('../model/car')
+const Brands = require('../model/brands')
 
 
 async function getAll(){
@@ -21,8 +22,13 @@ async function check(userId, carId) {
     return false
 }
 
+function getBrandName(brandId){
+    return Brands.findById(brandId).lean()
+}
+
 module.exports= {
     getAll,
     getById,
-    check
+    check,
+    getBrandName
 }
