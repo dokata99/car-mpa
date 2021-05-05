@@ -5,6 +5,8 @@ module.exports = (app) => {
 
     const db = mongoose.connection
 
+    mongoose.set('useFindAndModify', false);
+
     db.on('error', console.log.bind(console, 'connection error:'))
     db.once('open',console.log.bind(console, 'Connected to database!'))
 }

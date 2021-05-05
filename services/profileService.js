@@ -9,7 +9,7 @@ function getUser(userId) {
 
 function uploadPhoto(userId, profileImg) {
 
-    return User.findByIdAndUpdate({ _id: userId }, {profileImg: profileImg})
+    return User.findOneAndUpdate({ _id: userId }, {profileImg: profileImg})
 
 }
 

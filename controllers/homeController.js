@@ -3,9 +3,8 @@ const router = Router()
 const homeService = require('../services/homeService')
 const profileService = require('../services/profileService')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
 
-    
     homeService.getAll()
         .then((cars) => {
             res.render('home', { title: 'carsExpress', cars })
@@ -15,16 +14,36 @@ router.get('/', (req, res) => {
 
 
 router.get('/details/:carId', async (req, res) => {
-    
+
     let car = await homeService.getById(req.params.carId)
     let brand = await homeService.getBrandName(car.brand)
-    let user= await profileService.getUser(car.owner)
+    let user = await profileService.getUser(car.owner)
     let isOwner = false
-    if(req.user){
+    if (req.user) {
         isOwner = await homeService.check(req.user._id, req.params.carId)
     }
-    res.render('details', { title: 'CarsExpress', car, isOwner, user, brand})
+    res.render('details', { title: 'CarsExpress', car, isOwner, user, brand })
 
 })
+
+router.get('/edit/:carId', async (req, res) => {
+
+    let carId = await req.params.carId
+
+
+    res.render('editCar', { title: 'CarsExpress', carId })
+})
+
+router.post('/edit/:carId', async (req, res) => {
+
+    homeService.editCar(req.params.carId, req.body)
+        .then(() =>
+            res.redirect(`/details/${req.params.carId}`)
+        )
+
+})
+
+
+
 
 module.exports = router
