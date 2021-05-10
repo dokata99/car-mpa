@@ -4,13 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
-    {{!-- <link rel="stylesheet" href="/css/style.css" type="text/css" > --}}
+    {{!--
+    <link rel="stylesheet" href="/css/style.css" type="text/css"> --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/newStyle.css" type="text/css">
 </head>
 
 <body>
-
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <a href="/" class="navbar-brand">CarExpress</a>
+            {{#if isAuthenticated}}
+            <a href="/add" id="add-button">ADD CAR</a>
+            {{/if}}
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ml-auto">
+                    {{#if isAuthenticated}}
+                    <li class="nav-item"><a href="/profile/{{userId}}" class="nav-link">{{username}}</a></li>
+                    <li class="nav-item"><a href="/auth/logout" class="nav-link">Log out</a></li>
+                    {{else}}
+                    <li class="nav-item"><a href="/auth/login" class="nav-link">Log in</a></li>
+                    <li class="nav-item"><a href="/auth/register" class="nav-link">Sign up</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div id="container">
-        <nav>
+        {{!-- <nav>
             <div class="left-container">
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -20,21 +45,29 @@
                 </ul>
             </div>
             <div class="right-container">
-            {{#if isAuthenticated}}
+                {{#if isAuthenticated}}
                 <a href="/profile/{{userId}}" class="log-out">{{username}}</a>
                 <a href="/auth/logout" class="log-out">Logout</a>
                 {{else}}
                 <li><a href="/auth/login">LogIn</a></li>
                 <li><a href="/auth/register">Register</a></li>
-            {{/if}}
+                {{/if}}
             </div>
-        </nav>
-        
+        </nav> --}}
+
         {{{body}}}
-
-        <footer>@Doncho & Miroslav - Cars Application</footer>
     </div>
-
+    <footer>@Doncho & Miroslav - Cars Application</footer>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
