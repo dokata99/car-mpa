@@ -1,5 +1,22 @@
-<a href="/details/{{_id}}" class="added-car">
-    <img src="{{imageUrl}}" alt="" class="picture-added-car">
-    <h3>{{brand.brand}} {{model}}</h3>
-    <span>Price:{{price}} BGN</span>
+<a href="/details/{{_id}}" class="col-md-3">
+    <div class="card mt-3">
+        <div class="product align-items-center p-2 text-center">
+            <img src="{{imageUrl}}" alt="" class="rounded" width="100%">
+            <h5>{{brand.brand}} {{model}}</h5>
+            <div class="mt-3 info">
+                <span class="text1 d-block">
+                    Description
+                </span>
+                <span class="text1">Region</span>
+            </div>
+            <div class="cost mt-3 text-dark">
+                <span>{{price}} BGN</span>
+            </div>
+        </div>
+    </div>
 </a>
+
+{{!-- <img src="{{imageUrl}}" alt="" class="picture-added-car">
+<h3>{{brand.brand}} {{model}}</h3>
+<span>Price:{{price}} BGN</span> --}}
+{{!-- </a> --}}

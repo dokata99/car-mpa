@@ -1,10 +1,18 @@
-<section id="viewCatalog" class="background-img">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/newStyle.css" type="text/css">
+<div class="container mb-5 mt-5"></div>
+    <div class="row">
+        {{#each cars}}
+        {{>carElement}}
+        {{/each}}
+    </div>
+</div>
+
+{{!-- <section id="viewCatalog" class="background-img">
     <div class="added-cars">
         {{#each cars}}
         {{>carElement}}
         {{/each}}
     </div>
-    <!-- <div class="guest">
-                There are no Hotels found...
-            </div> -->
-</section>
+</section> --}}
