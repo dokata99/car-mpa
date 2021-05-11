@@ -1,18 +1,38 @@
 <section id="viewAddhotel">
-    <h2>Add new car</h2>
+    <h2>Добавяне на нова обява</h2>
     <form action="/add" method="post" id="formAddhotel">
-        <label for="brand">Car brand:</label>
+        <label for="brand">Марка:</label>
         <select name="brand" id="brand">
             {{#each brands}}
             {{>brandElement}}
             {{/each}}
         </select>
-        <label for="model">Model:</label>
-        <input type="text" id="model" name="model" placeholder="Model">
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" placeholder="Price">
-        <label for="imageUrl">Image:</label>
+        <label for="model">Модел:</label>
+        <input type="text" id="model" name="model">
+        <label for="year">Година на производство:</label>
+        <input type="number" id="year" name="year" value="2000">
+        <label for="engine">Двигател:</label>
+        <select name="engine" id="engine" >
+            <option>Дизел</option>
+            <option>Бензин</option>
+            <option>Газ</option>
+            <option>Хибрид</option>
+            <option>Електрически</option>
+        </select>
+        <label for="mileage">Пробег:</label>
+        <input type="text" id="mileage" name="mileage">
+        <label for="description">Описание:</label>
+        <textarea name="description" id="description" cols="30" rows="5"></textarea>
+        <label for="price">Цена:</label>
+        <input type="text" id="price" name="price">
+        <label for="imageUrl">Снимка:</label>
         <input type="text" id="imageUrl" name="imageUrl" placeholder="https://">
         <input type="submit" class="create" value="Add">
+        <label for="region">Регион:</label>
+        <select name="region" id="region">
+            {{#each regions}}
+            {{>regionElement}}
+            {{/each}}
+        </select>
     </form>
 </section>

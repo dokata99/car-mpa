@@ -1,17 +1,35 @@
 <a href="/details/{{_id}}" class="col-md-3">
     <div class="card mt-3">
-        <div class="product align-items-center p-0 text-center">
+        <div class="car align-items-center p-0 text-center">
+            <div class="datetime">
+                {{!-- TODO: format date --}}
+                {{date}}
+            </div>
             <img src="{{imageUrl}}" alt="" class="rounded">
-            <h5>{{brand.brand}} {{model}}</h5>
+            <h5 class="brand-model">{{brand.brand}} {{model}}</h5>
+            <hr>
+            <h6>{{year}}, {{engine}}, {{mileage}}км.</h6>
             <div class="mt-3 info">
-                <span class="text1 d-block">
-                    Description
+                <span class="description d-block">
+                    {{description}}
                 </span>
-                <span class="text1">Region</span>
             </div>
-            <div class="cost mt-3 text-dark">
-                <span>{{price}} BGN</span>
+            <div class="more-info">
+                Автор на обявата:
+                <span class="owner">
+                    {{owner.username}}
+                </span>
+                <br>
+                Регион:
+                <span class="region">
+                    {{region.region}}
+                </span>
             </div>
+            <hr>
+            <div class="cost text-dark">
+                <span>{{price}} лв.</span>
+            </div>
+
         </div>
     </div>
 </a>

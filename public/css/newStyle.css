@@ -11,11 +11,16 @@ body {
     padding: 5px 20px;
 }
 
+.navbar {
+    padding: 8px 20px;
+}
+
 nav {
     background-color: rgb(12, 46, 97);
 }
 
 .navbar-brand {
+    margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
     font-weight: bold;
@@ -24,6 +29,7 @@ nav {
 
 #add-button {
     padding: 5px 10px;
+    margin-left: 20px;
     background: #fff;
     color: rgb(46, 87, 126);
     border-radius: 5px;
@@ -58,25 +64,76 @@ a:hover {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
 }
 
-.text1 {
-    font-size: 13px;
-    color: #cbcbcb
+.datetime {
+    float: right;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgba(44, 70, 95, 0.61);
+}
+
+.car img {
+    object-fit: fill;
+    width: 100%;
+    height: 300px;
+}
+
+.brand-model {
+    margin: 0;
+    padding: 10px;
+    color: rgb(46, 87, 126);
+    font-weight: bold;
+}
+
+.car hr {
+    margin: 0 20px 10px;
+    color: rgba(44, 70, 95, 0.61);
+}
+
+.car h6 {
+    text-align: left;
+    color: #000;
+    margin: 0 0 0 20px;
+    font-size: 14px;
+}
+
+.description {
+    background-color: rgba(236, 236, 236, 0.199);
+    font-size: 14px;
+    color: rgba(44, 70, 95, 0.61);
+    padding: 15px 10px;
+    margin: 0 10px 0 -10px;
 }
 
 .info {
     line-height: 17px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.cost {
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 .cost span {
-    color: rgb(46, 87, 126);
+    color: rgb(32, 112, 187);
     font-weight: bold;
     font-size: 20px;
 }
 
-.product img {
-    object-fit: fill;
-    width: 100%;
-    height: 300px;
+.more-info {
+    text-align: left;
+    margin-left: 20px;
+    padding: 10px 10px 10px 0;
+    font-size: 12px;
+    color: rgba(12, 46, 97, 0.726);
+}
+
+.owner,
+.region {
+    font-weight: bold;
+    color: rgb(12, 46, 97);
 }
 
 footer {
@@ -90,19 +147,19 @@ footer {
 }
 
 @media screen and (max-width: 1600px) {
-    .product img {
+    .car img {
         height: 220px;
     }
 }
 
 @media screen and (max-width: 1300px) {
-    .product img {
+    .car img {
         height: 180px;
     }
 }
 
 @media screen and (max-width: 1000px) {
-    .product img {
+    .car img {
         height: 120px;
     }
     .navbar-brand {
@@ -111,19 +168,25 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    .product img {
+    .car img {
         height: 100px;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .product img {
+    .car img {
         height: 420px;
     }
 }
 
 @media screen and (max-width: 636px) {
-    .product img {
-        height: 320px;
+    .car img {
+        height: 360px;
+    }
+}
+
+@media screen and (max-width: 536px) {
+    .car img {
+        height: 280px;
     }
 }

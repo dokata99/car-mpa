@@ -4,10 +4,12 @@ const addService = require('../services/addService')
 
 
 router.get('/', (req, res) => {
-
     addService.getBrands()
         .then((brands) => {
-            res.render('add', { title: 'CarsExpress', brands })
+            addService.getRegions()
+                .then((regions) => {
+                    res.render('add', { title: 'CarsExpress', brands, regions })
+                })
         })
 })
 router.post('/', (req, res) => {
@@ -16,7 +18,7 @@ router.post('/', (req, res) => {
 
     //console.log(req.body)
     //res.redirect('/')
-    addService.create(req.body.brand, req.body, req.user._id)
+    addService.create(req.body.brand, req.body.region, req.body, req.user._id)
         .then(() => {
             res.redirect('/')
         }).catch((error) => console.log(error))
@@ -36,7 +38,17 @@ router.post('/brand', (req, res) => {
 
 })
 
+router.get('/region', (req, res) => {
+    res.render('region', { title: 'CarsExpress' })
+})
 
+router.post('/region', (req, res) => {
 
+    addService.createRegion(req.body)
+        .then(() => {
+            res.redirect('/add')
+        }).catch(() => res.status(500).end())
+
+})
 
 module.exports = router

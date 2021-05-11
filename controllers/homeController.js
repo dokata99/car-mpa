@@ -3,7 +3,7 @@ const router = Router()
 const homeService = require('../services/homeService')
 const profileService = require('../services/profileService')
 
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
 
     homeService.getAll()
         .then((cars) => {
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/details/:carId', async (req, res) => {
+router.get('/details/:carId', async(req, res) => {
 
     let car = await homeService.getById(req.params.carId)
     let brand = await homeService.getBrandName(car.brand)
@@ -23,10 +23,9 @@ router.get('/details/:carId', async (req, res) => {
         isOwner = await homeService.check(req.user._id, req.params.carId)
     }
     res.render('details', { title: 'CarsExpress', car, isOwner, user, brand })
-
 })
 
-router.get('/edit/:carId', async (req, res) => {
+router.get('/edit/:carId', async(req, res) => {
 
     let carId = await req.params.carId
 
@@ -34,7 +33,7 @@ router.get('/edit/:carId', async (req, res) => {
     res.render('editCar', { title: 'CarsExpress', carId })
 })
 
-router.post('/edit/:carId', async (req, res) => {
+router.post('/edit/:carId', async(req, res) => {
 
     homeService.editCar(req.params.carId, req.body)
         .then(() =>

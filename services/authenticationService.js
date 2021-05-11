@@ -1,9 +1,9 @@
-const User = require('../model/user')
+const User = require('../model/users')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 
-const register = async (userData) => {
+const register = async(userData) => {
 
     const { email, username, phone, password } = userData //destruct the object 
 
@@ -17,7 +17,7 @@ const register = async (userData) => {
 
 }
 
-const login = async (userData) => {
+const login = async(userData) => {
 
     const { username, password } = userData
 
@@ -25,12 +25,12 @@ const login = async (userData) => {
     let user = await User.findOne({ username }).lean()
 
     if (!user) throw { error: 'User not found!' }
-    
+
     let passwordMatch = await bcrypt.compare(password, user.password)
 
     if (!passwordMatch) throw { error: 'Wrond password!' }
-    
-    let token = jwt.sign({_id: user._id, username}, 'SHUUUUUU')
+
+    let token = jwt.sign({ _id: user._id, username }, 'SHUUUUUU')
 
     return token
 

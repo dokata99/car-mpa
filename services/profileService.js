@@ -1,4 +1,4 @@
-const User = require('../model/user')
+const User = require('../model/users')
 
 
 function getUser(userId) {
@@ -9,7 +9,7 @@ function getUser(userId) {
 
 function uploadPhoto(userId, profileImg) {
 
-    return User.findOneAndUpdate({ _id: userId }, {profileImg: profileImg})
+    return User.findOneAndUpdate({ _id: userId }, { profileImg: profileImg })
 
 }
 
