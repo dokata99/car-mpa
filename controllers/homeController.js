@@ -7,6 +7,18 @@ router.get('/', async(req, res) => {
 
     homeService.getAll()
         .then((cars) => {
+            cars.forEach(car => {
+                var options = {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric"
+                };
+
+                car.date = car.date.toLocaleDateString("bg", options)
+            });
+
             res.render('home', { title: 'carsExpress', cars })
         }).catch(() => res.status(500).end())
 
