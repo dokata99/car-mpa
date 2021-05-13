@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
                     res.render('add', { title: 'CarsExpress', brands, regions })
                 })
         })
+        .catch(() => res.statusMessage(404).end())
 })
 router.post('/', (req, res) => {
 
@@ -18,7 +19,7 @@ router.post('/', (req, res) => {
 
     //console.log(req.body)
     //res.redirect('/')
-    addService.create(req.body.brand, req.body.region, req.body, req.user._id)
+    addService.create(req.body.brand, req.body.model, req.body.region, req.body, req.user._id)
         .then(() => {
             res.redirect('/')
         }).catch((error) => console.log(error))
@@ -26,7 +27,9 @@ router.post('/', (req, res) => {
 })
 
 router.get('/brand', (req, res) => {
+
     res.render('brand', { title: 'CarsExpress' })
+
 })
 
 router.post('/brand', (req, res) => {
@@ -38,8 +41,29 @@ router.post('/brand', (req, res) => {
 
 })
 
+router.get('/model', (req, res) => {
+
+    addService.getBrands()
+        .then((brands) => {
+            res.render('model', { title: 'CarsExpress', brands })
+        })
+        .catch(() => res.statusMessage(404).end())
+
+})
+
+router.post('/model', (req, res) => {
+
+    addService.createModel(req.body.model, req.body.brand)
+        .then(() => {
+            res.redirect('/add')
+        }).catch(() => res.status(500).end())
+
+})
+
 router.get('/region', (req, res) => {
+
     res.render('region', { title: 'CarsExpress' })
+
 })
 
 router.post('/region', (req, res) => {
@@ -48,6 +72,15 @@ router.post('/region', (req, res) => {
         .then(() => {
             res.redirect('/add')
         }).catch(() => res.status(500).end())
+
+})
+
+router.get('/:brandName', (req, res) => {
+
+    addService.getModelsByBrand(req.params.brandName)
+        .then((models) => {
+            res.json(models);
+        })
 
 })
 

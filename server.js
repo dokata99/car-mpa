@@ -4,6 +4,7 @@ const routes = require('./routes')
 const mongoose = require('./config/mongoose') //mongoose configuration
 const cookieParser = require('cookie-parser')
 const mainMiddleware = require('./middlewares/mainMiddleware')
+const path = require('path')
 
 //here we import NMP packages
 
@@ -18,17 +19,18 @@ app.engine('hbs', handlebars({
 }))
 app.set('view engine', 'hbs')
 
-app.use(express.static('public')) //give express permissiton to always use this static folder
 
-app.use(express.urlencoded({   //parce the url to json/doc format 
-    extended: true}
-    ))
+app.use('/public', express.static(path.join(__dirname, 'public'))); //give express permissiton to always use this static folder
+
+app.use(express.urlencoded({ //parce the url to json/doc format 
+    extended: true
+}))
 
 app.use(cookieParser())
 
 app.use(mainMiddleware())
 
-app.use(routes) 
+app.use(routes)
 
 
 

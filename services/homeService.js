@@ -1,9 +1,10 @@
 const Car = require('../model/cars')
 const Brands = require('../model/brands')
+const Models = require('../model/models')
 
 
 async function getAll() {
-    let cars = await Car.find({}).populate('brand').populate('owner').populate('region').lean()
+    let cars = await Car.find({}).populate('brand').populate('model').populate('owner').populate('region').lean()
 
     return cars
 }
@@ -26,6 +27,10 @@ function getBrandName(brandId) {
     return Brands.findById(brandId).lean()
 }
 
+function getModelName(modelId) {
+    return Models.findById(modelId).lean()
+}
+
 function editCar(carId, updatedData) {
 
 
@@ -46,5 +51,6 @@ module.exports = {
     getById,
     check,
     getBrandName,
+    getModelName,
     editCar
 }

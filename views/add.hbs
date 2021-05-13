@@ -1,6 +1,6 @@
-<section id="viewAddhotel">
+<section id="viewAddCar">
     <h2>Добавяне на нова обява</h2>
-    <form action="/add" method="post" id="formAddhotel">
+    <form action="/add" method="post" id="formAddCar">
         <label for="brand">Марка:</label>
         <select name="brand" id="brand">
             {{#each brands}}
@@ -8,11 +8,12 @@
             {{/each}}
         </select>
         <label for="model">Модел:</label>
-        <input type="text" id="model" name="model">
+        <select name="model" id="model">
+        </select>
         <label for="year">Година на производство:</label>
         <input type="number" id="year" name="year" value="2000">
         <label for="engine">Двигател:</label>
-        <select name="engine" id="engine" >
+        <select name="engine" id="engine">
             <option>Дизел</option>
             <option>Бензин</option>
             <option>Газ</option>
@@ -27,12 +28,12 @@
         <input type="text" id="price" name="price">
         <label for="imageUrl">Снимка:</label>
         <input type="text" id="imageUrl" name="imageUrl" placeholder="https://">
-        <input type="submit" class="create" value="Add">
         <label for="region">Регион:</label>
         <select name="region" id="region">
             {{#each regions}}
             {{>regionElement}}
             {{/each}}
         </select>
+        <input type="submit" class="create" value="Add">
     </form>
 </section>

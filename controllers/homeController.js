@@ -29,12 +29,13 @@ router.get('/details/:carId', async(req, res) => {
 
     let car = await homeService.getById(req.params.carId)
     let brand = await homeService.getBrandName(car.brand)
+    let model = await homeService.getModelName(car.model)
     let user = await profileService.getUser(car.owner)
     let isOwner = false
     if (req.user) {
         isOwner = await homeService.check(req.user._id, req.params.carId)
     }
-    res.render('details', { title: 'CarsExpress', car, isOwner, user, brand })
+    res.render('details', { title: 'CarsExpress', car, isOwner, user, brand, model })
 })
 
 router.get('/edit/:carId', async(req, res) => {
