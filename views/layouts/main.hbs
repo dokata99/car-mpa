@@ -10,7 +10,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/newStyle.css" type="text/css">
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark">
@@ -35,26 +34,6 @@
         </nav>
     </header>
     <div id="container">
-        {{!-- <nav>
-            <div class="left-container">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    {{#if isAuthenticated}}
-                    <li><a href="/add">Add car</a></li>
-                    {{/if}}
-                </ul>
-            </div>
-            <div class="right-container">
-                {{#if isAuthenticated}}
-                <a href="/profile/{{userId}}" class="log-out">{{username}}</a>
-                <a href="/auth/logout" class="log-out">Logout</a>
-                {{else}}
-                <li><a href="/auth/login">LogIn</a></li>
-                <li><a href="/auth/register">Register</a></li>
-                {{/if}}
-            </div>
-        </nav> --}}
-
         {{{body}}}
     </div>
     <footer>@Doncho & Miroslav - Cars Application</footer>

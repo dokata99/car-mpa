@@ -76,12 +76,10 @@ router.post('/region', (req, res) => {
 })
 
 router.get('/:brandName', (req, res) => {
-
-    addService.getModelsByBrand(req.params.brandName)
+    let func = addService.getModelsByBrand(req.params.brandName)
         .then((models) => {
             res.json(models);
         })
-
 })
 
 module.exports = router
