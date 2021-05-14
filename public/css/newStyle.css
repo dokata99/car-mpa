@@ -7,9 +7,10 @@ body {
 }
 
 #container {
+    position: relative;
+    min-height: 100vh;
     background-color: #f2f2f2;
     padding: 5px 20px;
-    height: 100%;
 }
 
 .navbar {
@@ -144,7 +145,7 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: rgb(5, 20, 41);
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
@@ -174,34 +175,37 @@ footer {
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 991px) {
     .car img {
-        height: 120px;
+        height: 550px;
     }
-    .navbar-brand {
-        font-size: 20px;
+}
+
+@media screen and (max-width: 880px) {
+    .car img {
+        height: 460px;
     }
 }
 
 @media screen and (max-width: 800px) {
     .car img {
-        height: 100px;
+        height: 420px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .car img {
-        height: 420px;
+        height: 380px;
     }
 }
 
 @media screen and (max-width: 636px) {
     .car img {
-        height: 360px;
+        height: 340px;
     }
 }
 
-@media screen and (max-width: 536px) {
+@media screen and (max-width: 556px) {
     .car img {
         height: 280px;
     }
