@@ -49,7 +49,9 @@ nav {
 }
 
 #searchModel input,
-#searchModel label {
+#searchModel label,
+#searchRegion input,
+#searchRegion label {
     cursor: pointer;
     margin-right: 5px;
 }
