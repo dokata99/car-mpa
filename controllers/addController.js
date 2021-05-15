@@ -55,6 +55,7 @@ router.post('/model', (req, res) => {
 
     addService.createModel(req.body.model, req.body.brand)
         .then(() => {
+            //TODO: update cache when adding new model
             res.redirect('/add')
         }).catch(() => res.status(500).end())
 
@@ -76,10 +77,12 @@ router.post('/region', (req, res) => {
 })
 
 router.get('/:brandName', (req, res) => {
-    let func = addService.getModelsByBrand(req.params.brandName)
+    addService.getModelsByBrand(req.params.brandName)
         .then((models) => {
+            res.set('Cache-control', 'public, max-age=300')
             res.json(models);
         })
+        .catch(() => res.status(404).end())
 })
 
 module.exports = router

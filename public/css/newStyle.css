@@ -48,6 +48,12 @@ nav {
     transition: 0.3s;
 }
 
+#searchModel input,
+#searchModel label {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
 a,
 a:hover {
     text-decoration: none;
@@ -177,7 +183,7 @@ footer {
 
 @media screen and (max-width: 991px) {
     .car img {
-        height: 550px;
+        height: 560px;
     }
 }
 

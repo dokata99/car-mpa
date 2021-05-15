@@ -2,8 +2,11 @@ const { Router } = require('express')
 const router = Router()
 const homeService = require('../services/homeService')
 const profileService = require('../services/profileService')
+const addService = require('../services/addService')
 
 router.get('/', async(req, res) => {
+    let brands = await addService.getBrands();
+    let regions = await addService.getRegions();
 
     homeService.getAll()
         .then((cars) => {
@@ -19,11 +22,10 @@ router.get('/', async(req, res) => {
                 car.date = car.date.toLocaleDateString("bg", options)
             });
 
-            res.render('home', { title: 'carsExpress', cars })
+            res.render('home', { title: 'carsExpress', cars, brands, regions })
         }).catch(() => res.status(500).end())
 
 })
-
 
 router.get('/details/:carId', async(req, res) => {
 
@@ -55,7 +57,12 @@ router.post('/edit/:carId', async(req, res) => {
 
 })
 
+router.get('/search/', async(req, res) => {
+    homeService.getMatchingCars(req.query)
+        .then((cars) => {
+            res.render('home', { title: 'CarsExpress', cars })
+        }).catch(() => res.status(500).end())
 
-
+})
 
 module.exports = router

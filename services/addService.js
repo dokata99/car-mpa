@@ -27,13 +27,13 @@ async function create(brandName, modelName, regionName, carData, userId) {
 }
 
 async function getBrands() {
-    let brands = await Brands.find({}).lean()
+    let brands = await Brands.find({}).sort({ brand: 1 }).lean()
 
     return brands
 }
 
 async function getRegions() {
-    let regions = await Regions.find({}).lean()
+    let regions = await Regions.find({}).sort({ region: 1 }).lean()
 
     return regions
 }

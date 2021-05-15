@@ -3,6 +3,7 @@
     <form action="/add" method="post" id="formAddCar">
         <label for="brand">Марка:</label>
         <select name="brand" id="brand">
+            <option selected disabled>Избери марка</option>
             {{#each brands}}
             {{>brandElement}}
             {{/each}}
@@ -14,6 +15,7 @@
         <input type="number" id="year" name="year" value="2000">
         <label for="engine">Двигател:</label>
         <select name="engine" id="engine">
+            <option selected disabled>Избери двигател</option>
             <option>Дизел</option>
             <option>Бензин</option>
             <option>Газ</option>
@@ -30,6 +32,7 @@
         <input type="text" id="imageUrl" name="imageUrl" placeholder="https://">
         <label for="region">Регион:</label>
         <select name="region" id="region">
+            <option selected disabled>Избери регион</option>
             {{#each regions}}
             {{>regionElement}}
             {{/each}}
@@ -37,3 +40,4 @@
         <input type="submit" class="create" value="Add">
     </form>
 </section>
+

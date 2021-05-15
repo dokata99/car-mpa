@@ -1,10 +1,47 @@
 const Car = require('../model/cars')
 const Brands = require('../model/brands')
 const Models = require('../model/models')
+const Regions = require('../model/regions')
 
 
 async function getAll() {
-    let cars = await Car.find({}).populate('brand').populate('model').populate('owner').populate('region').lean()
+    let cars = await Car.find({}).sort({ _id: -1 }).populate('brand').populate('model').populate('owner').populate('region').lean()
+
+    //TODO: pagination
+
+    return cars
+}
+
+async function getMatchingCars(query) {
+    const { searchBrand, searchModel, searchRegion } = query;
+    let filterQuery = {};
+    if (searchBrand && searchBrand !== "all") {
+        let brand = await Brands.findOne({ brand: searchBrand }).lean()
+
+        filterQuery.brand = brand._id;
+    }
+    if (searchModel) {
+        let models = await Models.find({ model: searchModel }).lean()
+        let modelIds = [];
+        models.forEach((model) => {
+            modelIds.push(model._id.toString())
+        });
+
+        filterQuery.model = { $in: modelIds };
+    }
+    if (searchRegion) {
+        let regions = await Regions.find({ region: searchRegion }).lean()
+        let regionIds = [];
+        regions.forEach((region) => {
+            regionIds.push(region._id.toString())
+        })
+
+        filterQuery.region = { $in: regionIds };
+    }
+
+    let cars = await Car.find(filterQuery).sort({ _id: -1 }).populate('brand').populate('model').populate('owner').populate('region').lean()
+
+    //TODO: pagination
 
     return cars
 }
@@ -48,6 +85,7 @@ function editCar(carId, updatedData) {
 
 module.exports = {
     getAll,
+    getMatchingCars,
     getById,
     check,
     getBrandName,
