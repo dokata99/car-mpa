@@ -68,8 +68,6 @@ router.post('/login', isGuest, async (req, res) => {
     try {
         let token = await authService.login(req.body)
 
-        console.log(token)
-
         res.cookie('USER_SESSION', token)
 
         res.redirect('/')

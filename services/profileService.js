@@ -13,7 +13,18 @@ function uploadPhoto(userId, profileImg) {
 
 }
 
+async function checkUserProfile(userId, profileId){
+
+    let user = await User.findById(profileId)
+    if (userId == user._id) {
+        return true
+    }
+
+    return false
+}
+
 module.exports = {
     getUser,
-    uploadPhoto
+    uploadPhoto,
+    checkUserProfile
 }

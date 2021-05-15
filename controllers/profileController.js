@@ -5,8 +5,12 @@ const profileService = require('../services/profileService')
 router.get('/:profileId', async(req,res) => {
 
     let profile = await profileService.getUser(req.params.profileId)
+    let isOwner = false
+    if (req.user) {
+        isOwner = await profileService.checkUserProfile(req.user._id, req.params.profileId)
+    }
     
-    res.render('profile',{title: 'CarsExpress', profile})
+    res.render('profile',{title: 'CarsExpress', profile, isOwner})
 })
 
 router.get('/edit/:profileId', async (req, res) => {
