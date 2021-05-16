@@ -28,7 +28,6 @@ router.get('/', async(req, res) => {
 
                 car.date = car.date.toLocaleDateString("bg", options)
             });
-
             res.render('home', { title: 'carsExpress', cars, brands, regions, engines, minYear, maxYear, minPrice, maxPrice, minMileage, maxMileage })
         }).catch(() => res.status(500).end())
 

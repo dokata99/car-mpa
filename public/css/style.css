@@ -1,498 +1,274 @@
-@import url('https://fonts.googleapis.com/css?family=Amaranth|Courgette');
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css";
+html,
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
-* {
-    font-family: Amaranth;
+#container {
+    position: relative;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    padding: 5px 20px;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
-ul {
-    padding-inline-start: 0;
-}
-
-input[type=submit]:hover, ul>li:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.log-out:hover {
-    color: red;
-    transform: scale(1.1);
-}
-
-li, .log-out {
-    list-style-type: none;
-    display: inline-block;
-    border: 2px solid lightsteelblue;
-    padding: 10px;
-    margin: 10px;
-    width: 100px;
-    text-align: center;
+.navbar {
+    padding: 8px 20px;
 }
 
 nav {
-    background: cornflowerblue;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 0;
-    padding-top: 0;
+    background-color: rgb(12, 46, 97);
 }
 
-.right-container {
-    text-align: center;
-    margin: 0 5px;
-    color: white;
-}
-
-img {
-    width: 35px;
-    height: 35px;
-    margin-top: 25px;
-}
-
-h2 {
-    font-size: 50px;
+.brand {
     margin: 0;
-}
-
-label {
-    color: gray;
-    font-size: 25px;
-}
-
-section {
-    text-align: center;
-    margin-top: 5px;
-    position: relative;
-    padding-bottom: 6px;
-}
-
-form {
-    text-align: center;
-}
-
-input {
-    display: block;
-    margin: 10px auto;
-    width: 200px;
-    border: 2px solid lightsteelblue;
-    padding: 5px;
-}
-select,option {
-    display: block;
-    margin: 10px auto;
-    width: 215px;
-    border: 2px solid lightsteelblue;
-    padding: 5px;
-}
-
-.create, .save-changes, .login, .register {
-    background: cornflowerblue;
-    color: white;
-    border: 2px solid lightsteelblue;
-    padding: 15px;
-    width: 100px;
-}
-
-footer {
-    margin-top: 50px;
-    text-align: center;
-    background: cornflowerblue;
-    padding: 20px 0;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-.background-img {
-    background: url("../../static/img/hotel.jpg") no-repeat;
-    background-size: cover;
-    margin: auto;
-    min-height: 500px;
-}
-
-.guest {
-    text-align: center;
-    color: white;
-    background-color: cornflowerblue;
-    padding: 40px;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-}
-
-.hotel-parameters {
-    text-align: left;
-}
-
-.hotel-parameters span {
-    margin-left: 35px;
-    font-size: 35px;
-}
-
-.single-ticket {
-    display: flex;
-    margin: auto;
-    background: cornflowerblue;
-    padding-bottom: 30px;
-    width: 80%;
-    margin-top: 5px;
-}
-
-.hotel-img {
-    width: 100%;
-    height: 300px;
-    margin-left: 20px;
-}
-
-.left-ticket-container {
-    width: 49%;
-}
-
-.right-ticket-container {
-    text-align: left;
-    margin-left: 50px;
-    width: 45%;
-}
-
-.number-of-tickets {
-    margin-top: 5px;
-    font-size: 35px;
-}
-
-.right-ticket-container p {
-    font-size: 25px;
-}
-
-.remove {
-    list-style-type: none;
-    display: inline-block;
-    border: 2px solid lightsteelblue;
-    padding: 10px;
-    margin: 10px;
-    width: 140px;
-    text-align: center;
-    color: red;
-    background: none;
-}
-.remove:hover {
-    transform: scale(1.1);
-}
-
-.edit {
-    list-style-type: none;
-    display: inline-block;
-    border: 2px solid lightsteelblue;
-    padding: 10px;
-    margin: 10px;
-    width: 140px;
-    text-align: center;
-    color: black;
-    background: none;
-}
-
-.edit:hover {
-    transform: scale(1.1);
-}
-.book {
-    list-style-type: none;
-    display: inline-block;
-    border: 2px solid lightsteelblue;
-    padding: 10px;
-    margin: 10px;
-    width: 140px;
-    text-align: center;
-    color: blue;
-    background: none;
-}
-
-.book:hover {
-    transform: scale(1.1);
-}
-
-.green{
-    color: green;
-}
-
-.right-ticket-container div {
-    display: flex;
-    margin-top: 40px;
-}
-
-.right-ticket-container .remove {
-    margin-left: 260px;
-}
-
-.ticket-checkout {
-    font-size: 25px;
-    height: 150px;
-    padding: 15px;
-}
-
-.total {
-    margin: 10px;
-}
-
-.checkout {
-    border: 2px solid lightskyblue;
-    padding: 14px;
-    margin: 10px;
-    width: 160px;
-    text-align: center;
-    color: white;
-    background: lightsteelblue;
-    font-size: 20px;
-}
-
-.search {
-    background: cornflowerblue;
-    color: white;
-    border: 2px solid lightsteelblue;
-    padding: 15px;
-    width: 120px;
-    font-size: 20px;
-    display: block;
-}
-
-.added-car {
-    color: black;
-    cursor: pointer;
-    width: 400px;
-    border: 2px solid blue;
-    text-align: center;
-    background: cornflowerblue;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    height: 250px;
-    flex-basis: 25%;
-}
-
-.picture-added-car {
-    width: 200px;
-    height: 150px;
-    border-radius: 50%;
-}
-
-.picture-added-car:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.added-cars {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.save-changes {
-    width: 140px;
-}
-
-.edit-hotel-detail {
-    background: url("../../static/img/pencil.png") center;
-    width: 50px;
-    height: 50px;
-    border: 2px solid blue;
-    border-radius: 100%;
-    display: inline-block;
-    margin-right: 3px;
-}
-
-.edit-hotel-detail:hover {
-    transform: scale(1.1);
-}
-
-.hotel-area-left img {
-    width: 100%;
-    height: 90%;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin: 0;
-}
-
-.hotel-area {
-    display: flex;
-    justify-content: center;
-    background: cornflowerblue;
-    width: 60%;
-    margin: auto;
-    height: 235px;
-    color: white;
-}
-
-.hotel-area-right {
-    float: left;
-    text-align: center;
-    padding-top: 30px;
-}
-
-.details {
-    margin: 0;
-}
-.seat-form {
-    display: inline-flex;
-}
-
-.seat-form input, button {
-    margin: 20px;
-}
-
-.seat-form span {
-    margin: 20px;
-}
-
-.delete {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    border: 2px solid blue;
-    color: red;
-    margin: 20px;
-}
-
-.navigation {
-    margin: auto;
-}
-
-.car-ticket {
-    text-align: left;
-    font-size: 15px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.hotel-left img {
-    width: 400px;
-    height: 70%;
-    padding: 0 0 0 15px;
-}
-
-.car-right {
-    padding-left: 20px;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-h3 {
-    font-size: 22px;
-    margin-bottom: 0;
-}
-
-.nav-register {
-    text-align: center;
-}
-
-.notification {
-    position: fixed;
-    z-index: 10;
-    top: 6rem;
-    right: 5rem;
-    margin: 1rem auto;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    color: rgb(255, 255, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
-    text-decoration: underline;
-    box-shadow: 0 5px 10px rgb(204, 204, 204);
+    font-weight: bold;
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.685);
+    transition: 0.2s;
 }
 
-.loadingBox {
-    background: #7CB3E9;
+.brand:hover {
+    color: rgba(255, 255, 255);
+    transition: 0.2s;
 }
 
-.infoBox {
-    background: #393;
+#add-button {
+    padding: 5px 10px;
+    margin-left: 20px;
+    background: #fff;
+    color: rgb(46, 87, 126);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 0.5;
+    transition: 0.1s;
 }
 
-.errorBox {
-    background: #F50;
+#add-button:hover {
+    background: #fff;
+    color: rgb(46, 87, 126);
+    opacity: 1;
+    transition: 0.1s;
 }
 
-.profile {
+.btn:focus {
+    box-shadow: none;
+}
+
+.filter-btn-selected {
+    margin: 10px 5px 10px 0px;
+    border-radius: 10px;
+    background-color: rgba(6, 29, 63, 0.288);
+    color: rgba(30, 49, 77, 0.774);
+}
+
+.filter-btn {
+    margin: 10px 5px 10px 0px;
+    border-radius: 10px;
+    background-color: rgba(4, 17, 36, 0.080);
+    color: rgba(30, 49, 77, 0.774);
+}
+
+.filter-btn:hover {
+    transition: 0.3s;
+    background-color: rgba(6, 29, 63, 0.288);
+}
+
+#clearButton {
+    border-radius: 5px;
+    margin: 10px 5px 10px 0px;
+    border: none;
+    padding: 5px 10px;
+    font-weight: 500;
+    color: rgb(12, 46, 97);
+    transition: 0.3s;
+}
+
+#clearButton:hover {
+    border: none;
+    background-color: rgba(21, 80, 168, 0.233);
+    transition: 0.3s;
+}
+
+#searchModel input,
+#searchModel label,
+#searchRegion input,
+#searchRegion label,
+#searchEngine input,
+#searchEngine label {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+.card {
+    outline: none;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: transform .3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    transition: transform .3s;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
+}
+
+.datetime {
+    float: right;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgba(44, 70, 95, 0.61);
+}
+
+.car img {
+    object-fit: fill;
     width: 100%;
-    max-width: 500px;
-    margin: 2em auto 1rem;
-    padding: .5em;
-    border: .3em solid cornflowerblue;
-    border-radius: .5rem;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #444;
-    background-color: hsla(0, 0%, 94.1%, .8);
-    box-shadow: 0 0 1em 0 #000;
-    text-align: center;
+    height: 270px;
 }
 
-.profile h3 {
-    text-decoration: underline;
-}
-
-.profile img {
-    width: 7em;
-    height: 7em;
-    margin: auto;
-    display: block;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex p:first-child {
-    width: 35%;
-    text-align: right;
-    margin: .5em;
-}
-
-.flex p:last-child {
-    width: 55%;
-    text-align: left;
-    margin: .5em;
+.brand-model {
+    margin: 0;
+    padding: 10px;
+    color: rgb(46, 87, 126);
     font-weight: bold;
 }
 
-.profile button {
-    color: white;
-    border: none;
-    border-radius: 0.3em;
-    padding: 0.6em 1.2em;
-    outline: none;
+.car hr {
+    margin: 0 20px 10px;
+    color: rgba(44, 70, 95, 0.61);
 }
 
-.flex > input, .flex > div {
-    width: 55%;
+.car h6 {
     text-align: left;
-    margin: .5em;
+    color: #000;
+    margin: 0 0 0 20px;
+    font-size: 14px;
 }
 
-.flex > div > input {
-    width: 77%;
+.description {
+    font-size: 14px;
+    color: rgba(44, 70, 95, 0.61);
+    padding: 15px 0;
 }
 
-.flex select {
-    padding: 0.17em 0;
+.info {
+    line-height: 17px;
+    text-align: left;
+    margin: 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
-.red-button {
-    background-color: red;
+.cost {
+    margin: 0;
+    padding-bottom: 10px;
 }
 
-.green-button {
-    background-color: green;
+.cost span {
+    color: rgb(32, 112, 187);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.more-info {
+    text-align: left;
+    margin-left: 20px;
+    padding: 10px 10px 10px 0;
+    font-size: 12px;
+    color: rgba(12, 46, 97, 0.726);
+}
+
+.owner,
+.region {
+    font-weight: bold;
+    color: rgb(12, 46, 97);
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background-color: rgb(5, 20, 41);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+@media screen and (max-width: 1600px) {
+    .car img {
+        height: 220px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .car img {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .car img {
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .car img {
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 995x) {
+    .car img {
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .car img {
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .car img {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .car img {
+        height: 430px;
+    }
+}
+
+@media screen and (max-width: 686px) {
+    .car img {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 686px) {
+    .car img {
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 556px) {
+    .car img {
+        height: 280px;
+    }
 }
