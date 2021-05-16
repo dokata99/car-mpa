@@ -7,8 +7,15 @@ const addService = require('../services/addService')
 router.get('/', async(req, res) => {
     let brands = await addService.getBrands();
     let regions = await addService.getRegions();
+    let engines = await homeService.getEngines();
+    let minYear = await homeService.getMinYear();
+    let maxYear = await homeService.getMaxYear();
+    let minPrice = await homeService.getMinPrice();
+    let maxPrice = await homeService.getMaxPrice();
+    let minMileage = await homeService.getMinMileage();
+    let maxMileage = await homeService.getMaxMileage();
 
-    homeService.getAll()
+    homeService.getMatchingCars(req.query)
         .then((cars) => {
             cars.forEach(car => {
                 var options = {
@@ -22,7 +29,7 @@ router.get('/', async(req, res) => {
                 car.date = car.date.toLocaleDateString("bg", options)
             });
 
-            res.render('home', { title: 'carsExpress', cars, brands, regions })
+            res.render('home', { title: 'carsExpress', cars, brands, regions, engines, minYear, maxYear, minPrice, maxPrice, minMileage, maxMileage })
         }).catch(() => res.status(500).end())
 
 })
@@ -54,14 +61,6 @@ router.post('/edit/:carId', async(req, res) => {
         .then(() =>
             res.redirect(`/details/${req.params.carId}`)
         )
-
-})
-
-router.get('/search/', async(req, res) => {
-    homeService.getMatchingCars(req.query)
-        .then((cars) => {
-            res.render('home', { title: 'CarsExpress', cars })
-        }).catch(() => res.status(500).end())
 
 })
 
