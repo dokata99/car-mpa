@@ -1,8 +1,9 @@
 const { Router } = require('express')
 const router = Router()
 const authService = require('../services/authenticationService')
-const isAuth= require('../middlewares/isAuth')
-const isGuest= require('../middlewares/isGuest')
+const isAuth = require('../middlewares/isAuth')
+const isGuest = require('../middlewares/isGuest')
+
 
 
 
@@ -22,10 +23,23 @@ router.post('/register', isGuest, async (req, res) => {
     if (username.length <= 3) {
         return res.render('register', { title: 'Register', error: 'Username should be more than 3 symbols!' })
     }
+    if (phone.length <= 9) {
+        return res.render('register', { title: 'Register', error: 'Invalid phone number!' })
+    }
 
     if (password.length <= 3) {
         return res.render('register', { title: 'Register', error: 'Password should be more than 3 symbols!' })
     }
+    let searchUser = await authService.findUserByUsername(username);
+    if(searchUser){
+        return res.render('register', { title: 'Register', error: 'User or email already exists!' })
+    }
+    let searchEmail = await authService.findUserByEmail(email)
+    if(searchEmail){
+        return res.render('register', { title: 'Register', error: 'User or email already exists!' })
+    }
+     
+    
 
     //VALIDATION TODO
 
@@ -55,12 +69,12 @@ router.post('/login', isGuest, async (req, res) => {
 
     const { username, password } = req.body
 
-    if(!username){
-       return res.render('login', {title: 'CarsExpress', message:'Enter all fields!'})
+    if (!username) {
+        return res.render('login', { title: 'CarsExpress', message: 'Enter all fields!' })
     }
 
-    if(!password){
-       return res.render('login', {title: 'CarsExpress', message:'Enter all fields!'})
+    if (!password) {
+        return res.render('login', { title: 'CarsExpress', message: 'Enter all fields!' })
     }
 
     //validation TODO
@@ -73,13 +87,13 @@ router.post('/login', isGuest, async (req, res) => {
         res.redirect('/')
 
     } catch (error) {
-        
+
         console.log(error)
-        res.render('login', {title: 'CarsExpress', error})
+        res.render('login', { title: 'CarsExpress', error })
     }
 })
 
-router.get('/logout', (req,res) =>{
+router.get('/logout', (req, res) => {
     res.clearCookie('USER_SESSION')
     res.redirect('/')
 })

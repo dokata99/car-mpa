@@ -36,8 +36,31 @@ const login = async(userData) => {
 
 }
 
+async function findUserByUsername(username){
+    let searchUser = await User.findOne({username}).lean()
+    console.log(searchUser)
+
+    if(searchUser){
+        return true
+    }else{
+        return false
+    }
+}
+
+async function findUserByEmail(email){
+    let searchEmail = await User.findOne({email})
+
+    if(searchEmail){
+        return true
+    }else{
+        return false
+    }
+}
+
 
 module.exports = {
     register,
-    login
+    login,
+    findUserByUsername,
+    findUserByEmail
 }

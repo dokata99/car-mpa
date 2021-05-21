@@ -36,7 +36,7 @@ nav {
     transition: 0.2s;
 }
 
-#add-button {
+#add-button{
     padding: 5px 10px;
     margin-left: 20px;
     background: #fff;
@@ -206,6 +206,97 @@ footer {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
 }
+#viewCarDetails,#viewProfileDetails{
+    width: 100%;
+    text-align: center;
+}
+.car-ticket{
+    display:flex;
+}
+.car-ticket-left, .car-ticket-right{
+    margin: 35px;
+    padding: 15px;
+    width:45%;
+    margin: auto;
+    background-color:rgb(240, 248, 248);
+    border-radius: 15px;
+   
+
+}
+
+.car-img img, .profile img{
+    height:350px;
+    border-radius: 15px;
+}
+.car-img, .profile-img{
+    text-align: center;
+    padding:15px 0px 15px 0px;
+}
+.car-info, .profile-info{
+    margin:0px 20px 0px 20px;
+    margin:auto;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin:auto;
+}
+.flex-right{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin:auto;
+}
+.flex-right p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.flex p, a{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.flex:hover{
+    transform: translateY(-3px);
+    transition: transform .3s;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
+    background-color:rgb(213, 218, 218);
+}
+.flex-right:hover{
+    transform: translateY(-2px);
+    transition: transform .3s;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
+    background-color:rgb(213, 218, 218);
+    
+}
+.details-buttons{
+    margin:20px
+}
+#description{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+#edit-button, #delete-button{
+
+    margin:25px;
+    padding: 5px 10px;
+    color: rgb(46, 87, 126);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0.5;
+    transition: 0.1s;
+    background-color:rgb(240, 248, 248);
+}
+#delete-button:hover{
+    background-color: red;
+}
+#edit-button:hover{
+    background-color: rgb(93, 93, 233);
+
+}
+
 
 @media screen and (max-width: 1600px) {
     .car img {
@@ -217,17 +308,26 @@ footer {
     .car img {
         height: 180px;
     }
+    .car-img img{
+        height: 220px;
+    }
 }
 
 @media screen and (max-width: 1300px) {
     .car img {
         height: 160px;
     }
+    .car-img img{
+        height: 200px;
+    }
 }
 
 @media screen and (max-width: 1100px) {
     .car img {
         height: 140px;
+    }
+    .car-img img{
+        height: 180px;
     }
 }
 

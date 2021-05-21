@@ -137,6 +137,14 @@ function editCar(carId, updatedData) {
     return Cars.findOneAndUpdate({ _id: carId }, { imageUrl: updatedData.imageUrl, price: updatedData.price })
 
 }
+function getRegionName(regionId) {
+    return Regions.findById(regionId).lean()
+}
+function deleteCar(carId){
+    return Cars.findByIdAndDelete({_id:carId})
+}
+
+
 
 module.exports = {
     getAll,
@@ -152,5 +160,7 @@ module.exports = {
     check,
     getBrandName,
     getModelName,
-    editCar
+    editCar,
+    deleteCar,
+    getRegionName
 }

@@ -1,36 +1,61 @@
-<section id="viewhotelDetails">
+<section id="viewCarDetails">
     <h2>Details</h2>
     <div class="car-ticket">
-        <div class="hotel-left">
-            <img src="{{car.imageUrl}}" alt="">
+        <div class="car-ticket-left">
+            <div class="car-img">
+                <img src="{{car.imageUrl}}" alt="">
+            </div>
+            <div class="car-info">
+                <div class="flex">
+                    <p>Марка: </p>
+                    <p>{{brand.brand}}</p>
+                </div>
+                <div class="flex">
+                    <p>Модел:</p>
+                    <p>{{model.model}}</p>
+                </div>
+                <div class="flex">
+                    <p>Цена:</p>
+                    <p>{{car.price}}BGN</p>
+                </div>
+                <div class="flex">
+                    <p>Собственик:</p>
+                    <a href="/profile/{{user._id}}">{{user.username}}</a>
+                </div>
+                <div class="flex">
+                    <p>Контакти:</p>
+                    <p><span>{{user.phone}}</span> </p>
+                </div>
+                {{#if isAuthenticated}}
+                {{#if isOwner}}
+                <div class="details-buttons">
+                    <a id="edit-button" href="/edit/{{car._id}}" class="edit">Edit</a>
+                    <a id="delete-button" href="/delete/{{car._id}}">Delete</a>
+                </div>
+                {{/if}}
+                {{/if}}
+            </div>
         </div>
-        <div class="car-right">
-            <div class="flex">
-                <p>Brand: </p>
-                <p>{{brand.brand}}</p>
+        <div class="car-ticket-right">
+            <div class="flex-right">
+                <p>Описание:<p id="description">{{car.description}}</p></p>
             </div>
-            <div class="flex">
-                <p>Model:</p>
-                <p>{{model.model}}</p>
+            <div class="flex-right">
+                <p>Гориво:</p>
+                <p>{{car.engine}}</p>
             </div>
-            <div class="flex">
-                <p>Price:</p>
-                <p>{{car.price}}BGN</p>
+            <div class="flex-right">
+                <p>Година:</p>
+                <p>{{car.year}}</p>
             </div>
-            <div class="flex">
-                <p>Owner:</p>
-                <a href="/profile/{{user._id}}">{{user.username}}</a>
+            <div class="flex-right">
+                <p>Година:</p>
+                <p>{{region.region}}</p>
             </div>
-            <div class="flex">
-                <p>Contacts:</p>
-                <p><span>{{user.phone}}</span> </p>
+            <div class="flex-right">
+                <p>Километри:</p>
+                <p>{{car.mileage}} КМ.</p>
             </div>
-            {{#if isAuthenticated}}
-            {{#if isOwner}}
-            <a href="/edit/{{car._id}}" class="edit">Edit</a>
-            <a href="" class="remove">Delete</a>
-            {{/if}}
-            {{/if}}
         </div>
     </div>
 </section>

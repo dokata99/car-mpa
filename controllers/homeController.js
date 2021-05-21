@@ -39,11 +39,13 @@ router.get('/details/:carId', async(req, res) => {
     let brand = await homeService.getBrandName(car.brand)
     let model = await homeService.getModelName(car.model)
     let user = await profileService.getUser(car.owner)
+    let region = await homeService.getRegionName(car.region)
+
     let isOwner = false
     if (req.user) {
         isOwner = await homeService.check(req.user._id, req.params.carId)
     }
-    res.render('details', { title: 'CarsExpress', car, isOwner, user, brand, model })
+    res.render('details', { title: 'CarsExpress', car, isOwner, user, brand, model, region })
 })
 
 router.get('/edit/:carId', async(req, res) => {
@@ -59,6 +61,15 @@ router.post('/edit/:carId', async(req, res) => {
     homeService.editCar(req.params.carId, req.body)
         .then(() =>
             res.redirect(`/details/${req.params.carId}`)
+        )
+
+})
+
+router.get('/delete/:carId', async(req, res) => {
+
+    homeService.deleteCar(req.params.carId)
+        .then(() =>
+            res.redirect("/")
         )
 
 })
