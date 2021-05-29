@@ -73,10 +73,12 @@ function search() {
     }
 
     const mileageButton = document.getElementById("mileageFilter");
+    const searchMinMileage = document.getElementById("searchMinMileage");
+    const searchMaxMileage = document.getElementById("searchMaxMileage");
     const searchMinMileageSlider = document.getElementById("searchMinMileageSlider");
     const searchMaxMileageSlider = document.getElementById("searchMaxMileageSlider");
 
-    if (searchMinMileageSlider.value !== searchMinMileageSlider.defaultValue || searchMaxMileageSlider.value !== searchMaxMileageSlider.defaultValue) {
+    if (searchMinMileage.value !== searchMinMileage.defaultValue || searchMaxMileage.value !== searchMaxMileage.defaultValue) {
         mileageButton.className = "btn filter-btn-selected";
     } else {
         mileageButton.className = "btn filter-btn";

@@ -31,12 +31,17 @@ nav {
     transition: 0.2s;
 }
 
+.add-form {
+    max-width: 40rem;
+    margin: auto;
+}
+
 .brand:hover {
     color: rgba(255, 255, 255);
     transition: 0.2s;
 }
 
-#add-button{
+#add-button {
     padding: 5px 10px;
     margin-left: 20px;
     background: #fff;
@@ -206,80 +211,96 @@ footer {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
 }
-#viewCarDetails,#viewProfileDetails{
+
+#viewCarDetails,
+#viewProfileDetails {
     width: 100%;
     text-align: center;
 }
-.car-ticket{
-    display:flex;
+
+.car-ticket {
+    display: flex;
 }
-.car-ticket-left, .car-ticket-right{
+
+.car-ticket-left,
+.car-ticket-right {
     margin: 35px;
     padding: 15px;
-    width:45%;
+    width: 45%;
     margin: auto;
-    background-color:rgb(240, 248, 248);
-    border-radius: 15px;
-   
-
-}
-
-.car-img img, .profile img{
-    height:350px;
+    background-color: rgb(240, 248, 248);
     border-radius: 15px;
 }
-.car-img, .profile-img{
+
+.car-img img,
+.profile img {
+    height: 350px;
+    border-radius: 15px;
+}
+
+.car-img,
+.profile-img {
     text-align: center;
-    padding:15px 0px 15px 0px;
+    padding: 15px 0px 15px 0px;
 }
-.car-info, .profile-info{
-    margin:0px 20px 0px 20px;
-    margin:auto;
+
+.car-info,
+.profile-info {
+    margin: 0px 20px 0px 20px;
+    margin: auto;
 }
-.flex{
+
+.flex {
     display: flex;
     justify-content: center;
     width: 70%;
-    margin:auto;
+    margin: auto;
 }
-.flex-right{
+
+.flex-right {
     display: flex;
     justify-content: center;
     width: 70%;
-    margin:auto;
+    margin: auto;
 }
-.flex-right p{
+
+.flex-right p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
 }
-.flex p, a{
+
+.flex p,
+a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
 }
-.flex:hover{
+
+.flex:hover {
     transform: translateY(-3px);
     transition: transform .3s;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
-    background-color:rgb(213, 218, 218);
+    background-color: rgb(213, 218, 218);
 }
-.flex-right:hover{
+
+.flex-right:hover {
     transform: translateY(-2px);
     transition: transform .3s;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.09);
-    background-color:rgb(213, 218, 218);
-    
+    background-color: rgb(213, 218, 218);
 }
-.details-buttons{
-    margin:20px
+
+.details-buttons {
+    margin: 20px
 }
-#description{
+
+#description {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
 }
 
-#edit-button, #delete-button{
-
-    margin:25px;
+#edit-button,
+#delete-button {
+    margin: 25px;
     padding: 5px 10px;
     color: rgb(46, 87, 126);
     border-radius: 8px;
@@ -287,16 +308,16 @@ footer {
     font-size: 20px;
     opacity: 0.5;
     transition: 0.1s;
-    background-color:rgb(240, 248, 248);
+    background-color: rgb(240, 248, 248);
 }
-#delete-button:hover{
+
+#delete-button:hover {
     background-color: red;
 }
-#edit-button:hover{
+
+#edit-button:hover {
     background-color: rgb(93, 93, 233);
-
 }
-
 
 @media screen and (max-width: 1600px) {
     .car img {
@@ -308,7 +329,7 @@ footer {
     .car img {
         height: 180px;
     }
-    .car-img img{
+    .car-img img {
         height: 220px;
     }
 }
@@ -317,7 +338,7 @@ footer {
     .car img {
         height: 160px;
     }
-    .car-img img{
+    .car-img img {
         height: 200px;
     }
 }
@@ -326,7 +347,7 @@ footer {
     .car img {
         height: 140px;
     }
-    .car-img img{
+    .car-img img {
         height: 180px;
     }
 }
