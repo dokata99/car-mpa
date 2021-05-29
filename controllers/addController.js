@@ -1,9 +1,11 @@
 const { Router } = require('express')
 const router = Router()
 const addService = require('../services/addService')
+const isGuest = require('../middlewares/isGuest')
+const isAuthenticated = require('../middlewares/isAuth')
 
 
-router.get('/', (req, res) => {
+router.get('/', isAuthenticated, (req, res) => {
     addService.getBrands()
         .then((brands) => {
             addService.getRegions()
@@ -13,7 +15,7 @@ router.get('/', (req, res) => {
         })
         .catch(() => res.statusMessage(404).end())
 })
-router.post('/', (req, res) => {
+router.post('/', isAuthenticated, (req, res) => {
 
     //TODO VALIDATION
 
@@ -26,13 +28,13 @@ router.post('/', (req, res) => {
 
 })
 
-router.get('/brand', (req, res) => {
+router.get('/brand',isAuthenticated, (req, res) => {
 
     res.render('brand', { title: 'CarsExpress' })
 
 })
 
-router.post('/brand', (req, res) => {
+router.post('/brand', isAuthenticated, (req, res) => {
 
     addService.createBrand(req.body)
         .then(() => {
@@ -41,7 +43,7 @@ router.post('/brand', (req, res) => {
 
 })
 
-router.get('/model', (req, res) => {
+router.get('/model', isAuthenticated, (req, res) => {
 
     addService.getBrands()
         .then((brands) => {
@@ -51,7 +53,7 @@ router.get('/model', (req, res) => {
 
 })
 
-router.post('/model', (req, res) => {
+router.post('/model', isAuthenticated, (req, res) => {
 
     addService.createModel(req.body.model, req.body.brand)
         .then(() => {
@@ -61,13 +63,13 @@ router.post('/model', (req, res) => {
 
 })
 
-router.get('/region', (req, res) => {
+router.get('/region', isAuthenticated, (req, res) => {
 
     res.render('region', { title: 'CarsExpress' })
 
 })
 
-router.post('/region', (req, res) => {
+router.post('/region', isAuthenticated, (req, res) => {
 
     addService.createRegion(req.body)
         .then(() => {
@@ -76,7 +78,7 @@ router.post('/region', (req, res) => {
 
 })
 
-router.get('/:brandName', (req, res) => {
+router.get('/:brandName', isAuthenticated, (req, res) => {
     addService.getModelsByBrand(req.params.brandName)
         .then((models) => {
             res.set('Cache-control', 'public, max-age=300')
